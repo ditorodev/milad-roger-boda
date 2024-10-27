@@ -51,9 +51,7 @@ export default function RSVPModal({ isOpen, onOpenChange }: RSVPModalProps) {
 	return (
 		<Drawer open={isOpen} onOpenChange={onOpenChange}>
 			<DrawerContent>
-				<ScrollArea
-					className={`h-[calc(100vh-8rem)] max-h-[960px]`}
-				>
+				<ScrollArea className="h-[calc(100vh-8rem)] max-h-[960px]">
 					<DrawerHeader className="px-10">
 						<DrawerTitle className="text-2xl font-bold flex flex-col items-center justify-center gap-5">
 							<Utensils className="rtl:ml-2 text-neutral-200 size-16" />
@@ -83,6 +81,7 @@ export default function RSVPModal({ isOpen, onOpenChange }: RSVPModalProps) {
 										<SelectContent>
 											{[...Array(5)].map((_, i) => (
 												<SelectItem key={i + 1} value={(i + 1).toString()}>
+													{/* @ts-ignore */}
 													{m[
 														`dietary_preferences_guest_count_options_${i + 1}` as keyof typeof m
 													]()}
