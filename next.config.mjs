@@ -1,4 +1,5 @@
 import path from "node:path";
+import { paraglide } from '@inlang/paraglide-next/plugin'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,4 +12,7 @@ const nextConfig = {
     }
 };
 
-export default nextConfig;
+export default paraglide({paraglide: {
+    projectId: "./project.inlang",
+    outdir: "./src/paraglide"
+},...nextConfig});

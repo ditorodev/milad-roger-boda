@@ -8,7 +8,9 @@ import {
   CarouselItem
 } from "@/components/ui/carousel"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { m } from "@/lib/i18n"
 import Autoplay from "embla-carousel-autoplay"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
 import Flores from "../images/flores.png"
@@ -22,8 +24,6 @@ import MiladRoger8 from "../images/milad-roger-8.jpg"
 import MiladRoger9 from "../images/milad-roger-9.jpg"
 import MiladRoger11 from "../images/milad-roger-11.png"
 import Background from "../images/verde.png"
-
-import { motion } from "framer-motion"
 
 export default function Home() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
@@ -62,13 +62,12 @@ export default function Home() {
               Milad & Roger
             </motion.h1>
             <motion.p
-              className="relative max-w-md text-xl text-center -mt-1 text-neutral-600 bg-white/30"
+              className="relative max-w-md text-xl text-center -mt-1 text-neutral-600 bg-white/30 rtl:text-center"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 2.3 }}
             >
-              ¡Nos casamos y estamos ilusionados de rodearnos de nuestra gente
-              favorita!
+              {m.welcome_message()}
             </motion.p>
           </motion.div>
           <motion.div
@@ -152,7 +151,7 @@ export default function Home() {
                     onClick={() => setIsRSVPModalOpen(true)}
                     type="button"
                   >
-                    Confirmar asistencia
+                    {m.confirm_assistance()}
                   </Button>
                   <p className="text-neutral-600 pt-3 text-sm">
                     Queremos que te sientas cómodo y a la vez espectacular, por
