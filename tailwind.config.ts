@@ -11,6 +11,7 @@ const config: Config = {
   	extend: {
 		fontFamily: {
 			serif: ["StyleScript", "cursive"],
+			playfair: ["Playfair Display", "serif"],
 		},
   		colors: {
   			background: 'var(--background)',

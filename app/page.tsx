@@ -5,18 +5,25 @@ import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
+  CarouselItem
 } from "@/components/ui/carousel"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useState } from "react"
-import Background from "../images/bg.jpg"
+import Flores from "../images/flores.png"
 import MiladRoger1 from "../images/milad-roger-1.jpg"
 import MiladRoger2 from "../images/milad-roger-2.jpg"
 import MiladRoger3 from "../images/milad-roger-3.jpg"
+import MiladRoger4 from "../images/milad-roger-4.jpg"
+import MiladRoger5 from "../images/milad-roger-5.jpg"
+import MiladRoger6 from "../images/milad-roger-6.jpg"
+import MiladRoger8 from "../images/milad-roger-8.jpg"
+import MiladRoger9 from "../images/milad-roger-9.jpg"
+import MiladRoger11 from "../images/milad-roger-11.png"
+import Background from "../images/verde.png"
+
+import { motion } from "framer-motion"
 
 export default function Home() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
@@ -27,137 +34,139 @@ export default function Home() {
         src={Background}
         width={1920}
         height={1080}
-        className="absolute inset-0 z-10 object-cover"
+        className="absolute inset-0 z-10 -top-10 -left-10 opacity-80"
         alt="Background"
       />
-      <ScrollArea className="relative z-40 h-screen max-w-xl -mx-auto">
-        <div className="flex flex-col p-10 py-20 gap-10 md:gap-16 items-center justify-items-center min-h-full">
-          <span className="flex flex-col gap-4 items-center opacity-90">
-            <h1 className="text-5xl lg:text-7xl font-[family-name:var(--font-style-script)] text-neutral-800">
+      <ScrollArea className="z-40 h-screen max-w-xl -mx-auto">
+        <div className="flex flex-col mt-20 px-10 py-10 lg:py-20 items-center justify-items-center min-h-full">
+          <motion.div
+            className="relative flex flex-col gap-8 items-center opacity-90"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            <motion.p
+              className="max-w-md text-2xl font-medium text-center -mt-5 text-neutral-600"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 20 }}
+              transition={{ duration: 0.5, delay: 2.5 }}
+            >
+              08 / 06 / 2025
+            </motion.p>
+            <motion.h1
+              className="text-5xl lg:text-7xl font-[family-name:var(--font-style-script)] text-neutral-800"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 2 }}
+            >
               Milad & Roger
-            </h1>
-            <p className="max-w-md text-sm lg:text-base text-center text-neutral-600">
+            </motion.h1>
+            <motion.p
+              className="relative max-w-md text-xl text-center -mt-1 text-neutral-600 bg-white/30"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 2.3 }}
+            >
               ¡Nos casamos y estamos ilusionados de rodearnos de nuestra gente
               favorita!
-            </p>
-          </span>
-          <Card className="p-1 w-full rounded-md shadow-xl max-w-sm">
-            <CardContent className="p-0">
-              <Carousel
-                plugins={[
-                  Autoplay({
-                    delay: 2000
-                  })
-                ]}
-                className="w-full bg-white/10 rounded-sm overflow-hidden border"
-              >
-                <CarouselContent>
-                  <CarouselItem className="h-[480px] lg:h-[640px] w-full pl-1">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={MiladRoger1}
-                        alt="Milad & Roger"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="h-[480px] lg:h-[640px] w-full pl-1">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={MiladRoger2}
-                        alt="Milad & Roger"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="h-[480px] lg:h-[640px] w-full pl-1">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={MiladRoger3}
-                        alt="Milad & Roger"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                </CarouselContent>
-              </Carousel>
-            </CardContent>
-          </Card>
-          <Card className="p-0 w-full rounded-md shadow-none max-w-sm lg:-mt-10">
-            <CardContent className="flex flex-col p-0 text-md">
-              <div className="border-b border-neutral-200 p-4">
-                <h2 className="text-lg font-semibold flex items-center gap-2 pb-3">
-                  <span className="text-xl">📅</span>Fecha y hora
-                </h2>
-                <p className="text-neutral-600 font-medium">
-                  8 de Junio de 2025
-                </p>
-                <p className="text-neutral-600">Ceremonia: 17:00h</p>
-              </div>
-
-              <div className="p-4 border-b border-neutral-200">
-                <h2 className="text-lg font-semibold flex items-center gap-2 pb-3">
-                  <span className="text-xl">📍</span>Lugar
-                </h2>
-                <p className="text-neutral-600 font-medium">Torre del Pi</p>
-                <p className="text-neutral-600">
-                  Carretera a Premià de Mar, 27,
-                  <br />
-                  08338 Premià de Dalt, Barcelona
-                </p>
-              </div>
-
-              <div className="space-y-2 p-4 border-b border-neutral-200">
-                <h2 className="text-lg font-semibold flex items-center gap-2 pb-3">
-                  <span className="text-xl">🚗</span>Cómo Llegar
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-medium">En coche</p>
-                    <p className="text-neutral-600">
-                      Encontrarás parking gratuito al llegar
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-medium">En autobús</p>
-                    <p className="text-neutral-600">
-                      Salida desde Barcelona: 16:00h
-                      <br />
-                      Regreso desde Torre del Pi: 04:00h
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <Button
-                  className="w-full"
-                  onClick={() => setIsRSVPModalOpen(true)}
-                  type="button"
+            </motion.p>
+          </motion.div>
+          <motion.div
+            className="flex flex-col gap-4 w-full lg:translate-x-2 transform"
+            initial={{ opacity: 0, y: 0, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 50, filter: "blur(0px)" }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+          >
+            <Card className="p-1 w-full rounded-md shadow-xl md:ml-4 max-w-sm">
+              <CardContent className="p-0">
+                <Carousel
+                  plugins={[
+                    Autoplay({
+                      delay: 2000
+                    })
+                  ]}
+                  className="w-full bg-white/10 rounded-sm overflow-hidden border"
                 >
-                  RSVP
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-          <span className="max-w-sm lg:-mt-8 px-2">
-            <p className="text-sm text-neutral-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </span>
+                  <CarouselContent>
+                    {[
+                      { src: MiladRoger9, alt: "Milad & Roger 9" },
+                      { src: MiladRoger1, alt: "Milad & Roger 1" },
+                      { src: MiladRoger11, alt: "Milad & Roger 11" },
+                      { src: MiladRoger5, alt: "Milad & Roger 5" },
+                      { src: MiladRoger6, alt: "Milad & Roger 6" },
+                      { src: MiladRoger3, alt: "Milad & Roger 3" }
+                    ].map((image) => (
+                      <CarouselItem
+                        key={image.alt}
+                        className="h-[480px] lg:h-[640px] w-full pl-1"
+                      >
+                        <div className="relative h-full w-full">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              </CardContent>
+            </Card>
+          </motion.div>
+          <motion.div
+            className="flex flex-col gap-4 w-full "
+            initial={{ opacity: 0, y: 100, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 80, filter: "blur(0px)" }}
+            transition={{ delay: 2.2, duration: 0.5 }}
+          >
+            <Card className="p-0 w-full rounded-md shadow-none md:ml-4 max-w-sm">
+              <CardContent className="flex flex-col p-0 text-md">
+                <div className=" border-neutral-200 p-4 text-center">
+                  <p className="text-neutral-600 font-medium text-xl font-serif">
+                    <b>Domingo, 8 de Junio de 2025</b>
+                  </p>
+                  <p className="text-neutral-600 text-lg">a las 17:00h</p>
+                </div>
+
+                <div className="p-4 py-2">
+                  <p className="text-neutral-600 font-bold">Torre del Pi</p>
+                  <a
+                    href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x12a4b6d485045ec1:0xc1fb98ac76fec688?sa=X&ved=1t:8290&ictx=111"
+                    className="underline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <p className="text-neutral-600">
+                      Carretera a Premià de Mar, 27,
+                      <br />
+                      08338 Premià de Dalt, Barcelona
+                    </p>
+                  </a>
+                </div>
+
+                <div className="p-4 border-t border-neutral-200 mt-7">
+                  <Button
+                    className="w-full"
+                    onClick={() => setIsRSVPModalOpen(true)}
+                    type="button"
+                  >
+                    Confirmar asistencia
+                  </Button>
+                  <p className="text-neutral-600 pt-3 text-sm">
+                    Queremos que te sientas cómodo y a la vez espectacular, por
+                    lo que sugerimos traje formal que te haga feliz.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+          <div className="h-32" />
         </div>
         <div className="pointer-events-none fixed inset-x-0 bottom-0 h-32 z-50 bg-gradient-to-t from-white to-transparent" />
       </ScrollArea>
-      <div className="absolute inset-0 z-30 backdrop-blur-sm bg-white/80" />
+      <div className="absolute inset-0 z-30 bg-white/40" />
 
       <RSVPModal isOpen={isRSVPModalOpen} onOpenChange={setIsRSVPModalOpen} />
     </div>
